@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Bonjour ceci est un item",
+    "description": "Ceci est une putain de description",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRybHmN0jU0WjRkrmPksUZ-CS1Iymh7OWTfRw&usqp=CAU",
+    "userId": "1",
+    "price": 450
+  },
+  {
+    "title": "Bonjour ceci est un item 2",
+    "description": "Ceci est une putain de description",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRybHmN0jU0WjRkrmPksUZ-CS1Iymh7OWTfRw&usqp=CAU",
+    "userId": "2",
+    "price": 450
+  },
+  {
+    "title": "Bonjour ceci est un item 3",
+    "description": "Ceci est une putain de description",
+    "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRybHmN0jU0WjRkrmPksUZ-CS1Iymh7OWTfRw&usqp=CAU",
+    "userId": "3",
+    "price": 450
+  }
+]

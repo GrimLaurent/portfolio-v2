@@ -56,6 +56,8 @@ import Snackbar from "@/components/theme/Snackbar.vue";
 import Loading from "@/components/Loading.vue";
 import Billy from "@/components/HelpBot.vue";
 
+import http from "@/utils/myapi";
+
 export default Vue.extend({
   name: "App",
 
@@ -79,6 +81,7 @@ export default Vue.extend({
     this.versionApp = localVersionApp;
   },
   mounted() {
+    this.connectMongo();
     this.getProfil();
     this.getApplicationDefault();
   },
@@ -86,6 +89,35 @@ export default Vue.extend({
   methods: {
     ...mapActions("profil", ["getProfil"]),
     ...mapActions("application", ["getApplicationDefault"]),
+
+    connectMongo() {
+      //const gnome = http.get("/api/stuff");
+      const payload = {
+        title: "Hey",
+        description: "Bonjour",
+        imageUrl: "pictureURI",
+        userId: "HeyUserID",
+        price: 750,
+      };
+      http.post("/api/stuff", payload);
+
+      //console.log("demo:", gnome);
+
+      //  const MongoClient = require("mongodb").MongoClient,
+      //    format = require("util").format;
+      //  console.log("MongoClient", 0);
+      //  MongoClient.connect("mongodb://51.75.202.45:27017/demo", function(
+      //    err,
+      //    db
+      //  ) {
+      //    if (err) {
+      //      throw err;
+      //    } else {
+      //      console.log("successfully connected to the database");
+      //    }
+      //    db.close();
+      //  });
+    },
   },
 });
 </script>
