@@ -57,6 +57,7 @@ import Loading from "@/components/Loading.vue";
 import Billy from "@/components/HelpBot.vue";
 
 import http from "@/utils/myapi";
+import { callApi } from "@/utils/api/axios";
 
 export default Vue.extend({
   name: "App",
@@ -91,15 +92,22 @@ export default Vue.extend({
     ...mapActions("application", ["getApplicationDefault"]),
 
     connectMongo() {
-      //const gnome = http.get("/api/stuff");
+      const gnome = http.get("/api/stuff");
       const payload = {
         title: "Hey",
         description: "Bonjour",
-        imageUrl: "pictureURI",
-        userId: "HeyUserID",
+        imageUrl: "google.img",
+        userId: "crashtest",
         price: 750,
       };
-      http.post("/api/stuff", payload);
+      http.post("api/stuff", payload);
+
+      //  callApi({
+      //    url: "api/stuff",
+      //    method: "POST",
+      //    paramsJson: true,
+      //    params: payload,
+      //  });
 
       //console.log("demo:", gnome);
 

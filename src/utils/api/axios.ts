@@ -1,8 +1,8 @@
 import axios from "axios";
 import qs from "qs";
-//import { apiBaseUrl } from "@/const";
+import { apiBaseUrl } from "@/const";
 import store from "@/store";
-//import { objectToFormData } from "object-to-formdata";
+import { serialize } from "object-to-formdata";
 
 export const callApi = async (options: OptionsCall): Promise<Query> => {
   let response: any;
@@ -31,16 +31,17 @@ export const callApi = async (options: OptionsCall): Promise<Query> => {
         });
         break;
       case "POST":
-        //const formdata = objectToFormData(options.params, { indices: true });
-        //if (options.paramsJson) {
-        //  response = await axios.post(`${apiBaseUrl}${url}`, options.params);
-        //} else {
-        //  response = await axios.post(`${apiBaseUrl}${url}`, formdata, {
-        //    headers: {
-        //      "Content-Type": "multipart/form-data",
-        //    },
-        //  });
-        //}
+        const formdata = serialize(options.params, { indices: true });
+        if (options.paramsJson) {
+          response = await axios.post(`${apiBaseUrl}${url}`, options.params);
+        } else {
+          response = await axios.post(`${apiBaseUrl}${url}`, formdata, {
+            headers: {
+              "Content-Type": "multipart/form-data",
+              "Content-type": "application/json",
+            },
+          });
+        }
         break;
       case "POSTJSON":
         response = await axios.post(`${url}`, options.params);
