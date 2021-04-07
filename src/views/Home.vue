@@ -1,5 +1,8 @@
 <template>
   <div class="home">
+    <v-btn to="swipe">
+      Voir le swipe
+    </v-btn>
     <!--<Header />-->
     <v-sheet color="header">
       <v-container class="pt-12 pb-16 content--app">
