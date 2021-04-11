@@ -16,6 +16,8 @@ export default new Vuetify({
 
         btn: "#f3f3f5",
         bg: "#ffffff",
+        //new version
+        text: "#0d0d22",
       },
       dark: {
         primary: "#2D2C2D",
@@ -26,6 +28,9 @@ export default new Vuetify({
         lvl: "#768ddb",
 
         btn: "#f3f3f5",
+
+        //new version
+        text: "#f6f6f6",
       },
     },
   },

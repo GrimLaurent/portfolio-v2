@@ -1,21 +1,28 @@
 <template>
   <div>
-    <v-btn @click="changeTheme()" icon>
-      <v-img
-        v-if="$vuetify.theme.dark"
-        :src="'https://www.svgrepo.com/show/65427/sun.svg'"
-        contain
-        width="20"
-        height="20"
-      />
-      <v-img
-        v-else
-        :src="'https://www.svgrepo.com/show/16561/moon.svg'"
-        contain
-        width="20"
-        height="20"
-      />
-    </v-btn>
+    <v-menu offset-y>
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn icon>
+          <v-icon v-bind="attrs" v-on="on">
+            {{ themeSelected }}
+          </v-icon>
+        </v-btn>
+      </template>
+      <v-list dense>
+        <v-list-item
+          v-for="(item, index) in themeList"
+          :key="index"
+          @click="changeTheme(item.var)"
+        >
+          <v-list-item-icon>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-icon>
+          <v-list-item-content>
+            <v-list-item-title>{{ item.name }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-menu>
   </div>
 </template>
 
@@ -34,27 +41,66 @@ export default Vue.extend({
   name: "modeTheme",
   data() {
     return {
-      dark: "8cf19abac44887797fc8b62658d2efdcf06a2e339396e497d71395d6dfdd6f66" as string,
-      light: "a6341d5aae1cd59bda37fbdcf1492cd3c177123c7215c74dbd546040091438d1" as string
+      themeList: [
+        {
+          name: "dark_theme",
+          var:
+            "8cf19abac44887797fc8b62658d2efdcf06a2e339396e497d71395d6dfdd6f66",
+          icon: "mdi-moon-waning-crescent",
+        },
+        {
+          name: "light_theme",
+          var:
+            "a6341d5aae1cd59bda37fbdcf1492cd3c177123c7215c74dbd546040091438d1",
+          icon: "mdi-white-balance-sunny",
+        },
+        {
+          name: "system_theme",
+          var: "f19abac44887797fc8b62658d2efdcf06a2e339396e497d71395d6dfdd6f66",
+          icon: "mdi-theme-light-dark",
+        },
+      ],
+
+      themeSelected: "",
     };
   },
   methods: {
-    changeTheme() {
-      if (this.$vuetify.theme.dark) {
-        localStorage.setItem("app_theme", this.light);
-        this.$vuetify.theme.dark = false;
-      } else {
-        localStorage.setItem("app_theme", this.dark);
-        this.$vuetify.theme.dark = true;
+    changeTheme(theme) {
+      switch (theme) {
+        case this.themeList[0].var:
+          localStorage.setItem("app_theme", this.themeList[0].var);
+          this.themeSelected = this.themeList[0].icon;
+          this.$vuetify.theme.dark = true;
+
+          console.log("dark");
+          break;
+        case this.themeList[1].var:
+          localStorage.setItem("app_theme", this.themeList[1].var);
+          this.themeSelected = this.themeList[1].icon;
+          this.$vuetify.theme.dark = false;
+
+          console.log("light");
+          break;
+        case this.themeList[2].var:
+        default:
+          localStorage.setItem("app_theme", this.themeList[2].var);
+          this.themeSelected = this.themeList[2].icon;
+          const colorTheme = matchMedia("(prefers-color-scheme: dark)");
+
+          if (colorTheme.matches) {
+            this.$vuetify.theme.dark = true;
+          } else {
+            this.$vuetify.theme.dark = false;
+          }
+
+          console.log("system");
+          break;
       }
-    }
+    },
   },
   mounted() {
     const theme = localStorage.getItem("app_theme");
-
-    if (theme === this.dark) {
-      this.$vuetify.theme.dark = true;
-    }
-  }
+    this.changeTheme(theme);
+  },
 });
 </script>

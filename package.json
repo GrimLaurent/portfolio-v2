@@ -3,7 +3,7 @@
   "version": "1.1.9",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
+    "dev": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
@@ -24,6 +24,7 @@
     "vue": "^2.6.12",
     "vue-date-fns": "^2.0.1",
     "vue-h5-swiper": "^1.0.4",
+    "vue-i18n": "^8.24.2",
     "vue-router": "^3.2.0",
     "vue-server-renderer": "^2.6.12",
     "vuetify": "^2.2.11",

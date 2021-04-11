@@ -1,0 +1,60 @@
+.mc-footer {
+  font-family: "Poppins", sans-serif;
+  .headers-link {
+    vertical-align: bottom;
+
+    ul {
+      padding-left: 0px !important;
+    }
+  }
+
+  h1,
+  a {
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+
+  @media (min-width: 600px) {
+    i {
+      margin-left: -4px;
+      margin-right: 8px;
+      font-size: 18px !important;
+      height: 18px;
+      width: 18px;
+    }
+  }
+  ul,
+  li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  ul {
+    padding-left: 12px !important;
+  }
+
+  .v-application .font-weight-light {
+    font-family: "Poppins-Light", sans-serif;
+  }
+}
+
+.theme--light {
+  .mc-footer {
+    h1,
+    a {
+      color: $text-theme--light;
+    }
+  }
+}
+
+.theme--dark {
+  .mc-footer {
+    h1,
+    a {
+      color: $text-theme--dark;
+    }
+  }
+}

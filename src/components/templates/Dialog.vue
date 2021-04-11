@@ -2,6 +2,7 @@
   <v-dialog
     v-model="showDialog"
     :max-width="sizeDialog"
+    scrollable
     @click:outside="closeBtn()"
   >
     <v-card rounded="lg">
@@ -118,6 +119,9 @@ export default Vue.extend({
       case "md":
         this.sizeDialog = "500";
         break;
+      case "xl":
+        this.sizeDialog = "800";
+        break;
       case "ld":
         this.sizeDialog = "90%";
         break;
@@ -126,9 +130,9 @@ export default Vue.extend({
   computed: {
     showDialog: {
       get(): boolean {
-        if (this.content.hasOwnProperty("data")) {
-          this.$set(this.$data, "picture", this.content.data.logo);
-        }
+        //if (this.content.hasOwnProperty("data")) {
+        //  this.$set(this.$data, "picture", this.content.data.logo);
+        //}
 
         return this.show;
       },

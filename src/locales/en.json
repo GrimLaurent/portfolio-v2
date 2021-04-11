@@ -1,0 +1,10 @@
+{
+  "message": "Hello is file Json EN",
+  "translation": {
+    "title": "Translation",
+    "button": "Change translate",
+    "help-translate": "Help to translate",
+    "en": "English",
+    "fr": "French"
+  }
+}

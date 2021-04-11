@@ -1,0 +1,10 @@
+{
+  "message": "Bonjour ceci est le fichier Json FR",
+  "translation": {
+    "title": "Traduction",
+    "button": "Changer de traduction",
+    "help-translate": "Aide à la traduction",
+    "en": "Anglais",
+    "fr": "Français"
+  }
+}
