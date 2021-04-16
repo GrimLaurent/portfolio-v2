@@ -136,12 +136,6 @@ export default Vue.extend({
             route: "https://google.fr",
             target: "_blank",
           },
-          {
-            name: "Manage Cookies",
-            icon: null,
-            route: "https://google.fr",
-            target: null,
-          },
         ],
       },
       items: [

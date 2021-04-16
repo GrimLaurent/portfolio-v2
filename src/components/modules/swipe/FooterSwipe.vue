@@ -1,10 +1,5 @@
 <template>
-  <div>
-    Components FooterSwipe<br />
-
-    <br />
-    <p>{{ $t("message") }}</p>
-
+  <div class="swipe-content">
     <Footer />
     <SubFooter />
   </div>

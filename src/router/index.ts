@@ -7,6 +7,7 @@ import Homepage from "../views/Homepage.vue";
 import TestApi from "../views/TestApi.vue";
 import HomeSwipe from "../views/HomeSwipe.vue";
 import HelpTranslate from "../views/answer/HelpTranslate.vue";
+import HomeEvol from "../views/HomeEvol.vue";
 
 Vue.use(VueRouter);
 
@@ -25,6 +26,11 @@ const routes: Array<RouteConfig> = [
     path: "/swipe",
     component: HomeSwipe,
     name: "HomeSwipe",
+  },
+  {
+    path: "/newhome",
+    component: HomeEvol,
+    name: "HomeEvol",
   },
   {
     path: "/help-translate",

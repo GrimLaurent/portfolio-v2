@@ -1,7 +1,9 @@
 <template>
   <v-container class="mc-sub-footer">
     <v-toolbar flat>
-      Copyright ©2020 - 2021 Laurent Grimaldi. All rights reserved.
+      <span class="text-caption text-sm-body-1"
+        >Copyright ©2020 - 2021 Laurent Grimaldi. All rights reserved.</span
+      >
       <v-spacer />
       <Darkmode />
       <Translate />
